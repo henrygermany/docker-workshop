@@ -1,0 +1,48 @@
+# docker-compose.yml
+version: '3'
+
+services:
+  frontend: # use the Dockerfile in ./frontend to build the container image
+    build:
+      context: ./frontend
+
+    ports:
+      - "5000:5000"
+
+    working_dir: /usr/app
+    command: "npm run dev"
+
+    volumes:
+      # keep node_modules from being overridden by app volume
+      - /usr/app/node_modules
+      - ./frontend/:/usr/app
+
+  backend:
+    build:
+      context: ./backend
+
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+    working_dir: /usr/app
+    command: "npm run dev"
+
+    volumes:
+      # keep node_modules from being overridden by app volume
+      - /usr/app/node_modules
+      - ./backend/:/usr/app
+
+  db:
+    image: postgres:16.1-alpine3.19
+
+    env_file:
+      - ./db/.env
+
+    volumes: # startup sql scripts
+      - ./db/create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

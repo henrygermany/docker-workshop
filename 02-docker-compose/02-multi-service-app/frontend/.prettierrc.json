@@ -1,0 +1,17 @@
+{
+  "tabWidth": 2,
+  "printWidth": 100,
+  "semi": true,
+  "singleQuote": false,
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "svelteAllowShorthand": false,
+        "svelteSortOrder": "options-scripts-styles-markup",
+        "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"]
+      }
+    }
+  ]
+}
+

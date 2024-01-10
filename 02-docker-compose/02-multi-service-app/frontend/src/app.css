@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+@layer components {
+    .confirm {
+        @apply bg-gradient-to-r from-blue-400 to-emerald-400;
+    }
+
+    .danger {
+
+        @apply bg-gradient-to-r from-rose-500 to-fuchsia-500;
+    }
+
+    .primary {
+        @apply bg-gradient-to-r from-sky-400 to-indigo-500;
+    }
+}
