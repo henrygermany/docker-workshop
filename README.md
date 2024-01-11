@@ -19,5 +19,5 @@ don't really need Docker Desktop. Also, the Docker Desktop is a licensed closed 
 commercial reasons, you need to pay for it.
 If you don't want the overhead and proprietary of Docker Desktop,
 use [this script](https://get.docker.com/) to install the Docker engine on linux and maybe try
-out [Colima]('https://github.com/abiosoft/colima)
+out [Colima](https://github.com/abiosoft/colima)
 with [Docker from homebrew](https://github.com/abiosoft/colima?tab=readme-ov-file#docker) for macOS.
